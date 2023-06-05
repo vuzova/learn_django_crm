@@ -1,15 +1,15 @@
 from django.shortcuts import render
 from .models import *
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
-def home(requst):
-    return render(requst, 'home.html', context= {
-        'list_articles' : Articles.objects.all(),
-        'name': 'User'
-    })
+class HomeListView(ListView):
+    model = Articles
+    template_name = 'home.html'
+    context_object_name = "list_articles"
 
-def page(request, id):
-    return render(request, 'page.html', context = {
-        'article': Articles.objects.get(id=id)
-    })
+class HomeDetailView(DetailView):
+    model = Articles
+    template_name = 'page.html'
+    context_object_name = 'article'

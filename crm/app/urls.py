@@ -4,6 +4,6 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('page/<int:id>', page, name='page')
+    path('', HomeListView.as_view(), name='home'),
+    path('page/<int:pk>', HomeDetailView.as_view(), name='page')
 ]
