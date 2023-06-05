@@ -8,3 +8,8 @@ def home(requst):
         'list_articles' : Articles.objects.all(),
         'name': 'User'
     })
+
+def page(request, id):
+    return render(request, 'page.html', context = {
+        'article': Articles.objects.get(id=id)
+    })

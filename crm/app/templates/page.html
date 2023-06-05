@@ -9,22 +9,18 @@
 </head>
 <body>
 <div class="px-4">
-    <h1>Привет, {{name}}</h1>
-    <a class="text-success" href="{% url 'admin:index' %}">Перейти в админку</a>
+    <ul class="list-group">
 
-
-    <ul class="list-group mt-4 ">
-        {% for e in list_articles %}
         <li class="list-group-item mt-2 p-2">
-            <h3>{{ e.name }} </h3>
+            <h3>{{ article.name }} </h3>
             <br>
-            <span> {{ e.text|truncatechars:"200" }} </span>
+            <span> {{ article.text}} </span>
             <br> <br>
-            <span><i>({{ e.create_date }})</i></span>
+            <span><i>({{ article.create_date }})</i></span>
             <br>
-            <span><a href=" {% url 'page' e.id %}"> Читать далее </a></span>
+            <span><a href=" {% url 'home' %}"> Вернутся домой </a></span>
         </li>
-        {% endfor %}
+
     </ul>
 
 </div>
